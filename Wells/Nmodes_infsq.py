@@ -23,31 +23,39 @@ def nmodes(nx, t, N, L=1) -> np.array: # nx = x array points ; N = numb. of osci
 
 
 # ANIMATION
+def myfigure():
+    fig, ax = plt.subplots(1, 1, figsize = (8,6))
+    plt.subplots_adjust(bottom=.18)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(-2, 2)
+    ax.set_title('First N modes')
+    ax.set_xlabel("x'")
+    ax.set_ylabel(r"$Re(\psi)}$")
+    ax_Nslid = plt.axes([.17, 0.07, .65, .03], facecolor='lightgoldenrodyellow')
+    Nslid = Slider(ax_Nslid, label='N', valmin=1, valmax = 10, valinit = 5, valstep = 1)
+    return fig, ax, Nslid
+
 nx, N0 = 1000, 5
 xf = np.linspace(0, 1, nx)
-t = np.linspace(0, 10, 100)
+tf = np.linspace(0, 10, 500)
 
 psi = lambda N, t: nmodes(nx, t, N)
 #psif = psi(t)
 
-fig, ax = plt.subplots(1, 1, figsize = (8,4))
-l, = ax.plot([],[])
-ax.set_xlim(0, 1)
-ax.set_ylim(-2, 2)
-ax.set_title('First N modes')
-ax.set_xlabel("x'")
-ax.set_ylabel(r"$Re(\psi)}$")
-ax_Nslid = plt.axes([.27, 0.17, .65, .03], facecolor='lightgoldenrodyellow')
-Nslid = Slider(ax_Nslid, label='N', valmin=1, valmax = 10, valinit = 5, valstep = 1)
-
-def animate(i):
-    def update(val):
+def animate(tf, fig, ax, Nslid):
+    l, = ax.plot(xf, psi(5, 0))
+    plt.pause(0.005)
+    i = 0
+    while i <= len(tf):
+        if i == len(tf):
+            i = 0
         Ns = Nslid.val
-        l.set_xdata(xf)
-        l.set_ydata(psi(t[i], Ns))
-        fig.canvas.draw_idle()
-    Nslid.on_changed(update)
-    return l,
+        l.set_data(xf, psi(Ns, tf[i]))
+        plt.pause(0.005)
+        i = i + 1
 
-ani = FuncAnimation(fig, animate, frames=len(t), interval=100)
+fig, ax, Nslid = myfigure()
+animate(tf, fig, ax, Nslid)
+
 plt.show()
+# If you want to stop the algorithm, close the plot window and Ctrl+C in the Terminal to KeyboardInterrupt
