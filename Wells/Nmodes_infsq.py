@@ -2,9 +2,7 @@
 import numpy as np
 import numba # speed up summation
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import Slider
-#import animatplot as amp
 import scienceplots
 njit = numba.njit 
 
