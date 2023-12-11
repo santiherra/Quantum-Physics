@@ -31,8 +31,7 @@ def myfigure():
     ax.set_xlim(0, 1)
     ax.set_ylim(-max(np.sqrt(105/L**7)*xf**2*(L-xf)), max(np.sqrt(105/L**7)*xf**2*(L-xf)))
     ax.grid()
-    ax.legend()
-    ax_Nslid = plt.axes([.27, 0.17, .65, .03], facecolor='lightgoldenrodyellow')
+    ax_Nslid = plt.axes([.2, 0.17, .65, .03], facecolor='lightgoldenrodyellow')
     Nslid = Slider(ax_Nslid, label='N', valmin=1, valmax = 10, valinit = 5, valstep = 1)
     return fig, ax, Nslid
 
@@ -45,6 +44,7 @@ psi = lambda t, N : polyinfsq(nx, t, N, L)
 def animate(tf, fig, ax, Nslid):
     l1, = ax.plot(xf, psi(0, 5))
     l2, = ax.plot(xf, np.sqrt(105/L**7)*xf**2*(L-xf), '--', label=r'$\psi_0$')
+    ax.legend()
     plt.pause(0.005)
     i=0
     while i <= len(tf):
