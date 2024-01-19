@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import Slider
 import scienceplots
 import matplotlib
-#from matplotlib import rc
+# from matplotlib import rc
 #matplotlib.rcParams['animation.embed_limit'] = 2**128
 
 plt.style.use(['science', 'no-latex'])
