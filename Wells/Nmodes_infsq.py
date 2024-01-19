@@ -28,7 +28,7 @@ def myfigure():
     ax.set_ylim(-2, 2)
     ax.set_title('First N modes')
     ax.set_xlabel("x'")
-    ax.set_ylabel(r"$Re(\psi)}$")
+    ax.set_ylabel(r"$Re(\psi)$")
     ax_Nslid = plt.axes([.17, 0.07, .65, .03], facecolor='lightgoldenrodyellow')
     Nslid = Slider(ax_Nslid, label='N', valmin=1, valmax = 10, valinit = 5, valstep = 1)
     return fig, ax, Nslid
