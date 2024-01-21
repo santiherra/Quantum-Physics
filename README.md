@@ -12,5 +12,6 @@ You will find multiple Python scripts each dedicated to interactive plots about 
 * Well Potentials: Particles under constant or infinite potential barriers
     * Nmodes_infsq.py : Distributions made by the first N modes of oscillation in an infinite square well
     * poly_infsq.py : Wavefunction starting from $x^2(L-x)$ distribution in the infinite square well
+    * stepbarrier.ipynb : Wavepacket against a finite potential wall
 
 More sections are up to come... Keep track!
