@@ -3,11 +3,7 @@ import numpy as np
 import scipy as spe
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from matplotlib.widgets import Slider
 import scienceplots
-import matplotlib
-# from matplotlib import rc
-#matplotlib.rcParams['animation.embed_limit'] = 2**128
 
 plt.style.use(['science', 'no-latex'])
 
@@ -44,8 +40,6 @@ ax[1].set_ylim(.2, max(dispersion(t, alph1)))
 ax[1].set_title(r"Dispersion")
 ax[1].set_xlabel("t'")
 ax[1].set_ylabel(r"$\sigma^2$")
-#ax_slider = plt.axes([0.25, 0.01, 0.65, 0.03], facecolor ='lightgoldenrodyellow')
-#slider = Slider(ax_slider, label=r'$\alpha$', valmin=0, valmax=1, valinit=0)
 ax[0].grid()
 ax[0].legend()
 ax[1].grid()
