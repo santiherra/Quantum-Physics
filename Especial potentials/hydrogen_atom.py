@@ -40,10 +40,31 @@ lin = np.linspace(-10, 10, 1000)
 X, Y = np.meshgrid(lin, lin)
 Z = np.linspace(-10, 10, 1000)
 r = np.linspace(0, 20, 1000)
+boolean = False
+while boolean==False:
+    n = int(input('Energy level (n): '))
+    if n<1:
+        print('n needs to be > 0 !')
+        boolean==False
+    else:
+        break
+boolean = False
+while boolean==False:
+    l = int(input('Orbital angular momentum (l): '))
+    if l>n-1:
+        print('l needs to be < n-1!')
+        boolean==False
+    else:
+        break
+boolean==False
+while boolean==False:
+    m = int(input('Magnetic moment (m): '))
+    if np.abs(m)>l:
+        print('|m| needs to be < l!')
+        boolean==False
+    else:
+        break
 
-n = int(input('Energy level (n): '))
-l = int(input('Orbital angular momentum (l): '))
-m = int(input('Spin (m): '))
 theta, phi = np.linspace(0, np.pi, 1000), np.linspace(0, 2*np.pi, 1000)
 The, Phi = np.meshgrid(theta, phi)
 Yt = np.abs(tesseralharm(l, m, The, Phi))

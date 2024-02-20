@@ -75,7 +75,7 @@ def imwavepacketright(xr, t, U0, eps):
 
 
 # ANIMATION
-xl, xr= np.linspace(-10, 0, 200), np.linspace(0, 10, 200)
+xl, xr= np.linspace(-10, 0, 150), np.linspace(0, 10, 150)
 x = np.concatenate((xl, xr))
 U0 = 15
 eps = U0*1e-2
@@ -102,5 +102,5 @@ def animate(i): # Animation function
   timer.set_text("t' = " + str(round(t[i], 2)))
   return ln2, ln3, timer
 
-ani = FuncAnimation(fig, animate, frames=len(t), interval=.000001, blit=True)
+ani = FuncAnimation(fig, animate, frames=100, interval=.10, blit=True)
 plt.show()
